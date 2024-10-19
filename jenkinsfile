@@ -1,0 +1,23 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Checkout') {
+
+            steps {
+                checkout scmGit(branches: [[name: '*/python']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/iambhairavpatil/mydeops.git']])
+                
+            }
+        }
+        stage('Build') {
+            steps {
+                git branch: 'python', url: 'https://github.com/iambhairavpatil/mydeops.git'
+                sh 'python hello.py'
+            }
+        }
+        stage('pyton test'){
+            steps{
+                echo "Testing completed"
+            }
+        }
+    }
+}
