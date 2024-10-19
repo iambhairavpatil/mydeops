@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 git branch: 'python', url: 'https://github.com/iambhairavpatil/mydeops.git'
-                bat 'python hello.py'
+                bat 'C:\Users\Admin\AppData\Local\Programs\Python\Python311\python.exe hello.py'
             }
         }
         stage('pyton test'){
